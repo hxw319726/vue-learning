@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app1">
+		总和:{{sum}}
+	</div>
+	<div id="app2">
+	<button v-on:click="minus">减1</button>
+	a:{{a}}
+	<button v-on:click="plus">加1</button>
+	</div>
+	<script type="text/javascript">
+		let vm1=new Vue({
+			el:"#app1",
+			data:{
+				num1:1,
+				num2:2,
+				num3:3
+			},
+			computed:{
+				sum(){
+					return this.num1+this.num2+this.num3;
+				}
+			}
+		});
+		let vm2=new Vue({
+			el:"#app2",
+			data:{
+				a:0
+			},
+			methods:{
+				plus(){
+					return this.a++
+				},
+				minus(){
+					return this.a--
+				}
+			},
+			watch:{
+				a(){
+					console.log("a有变化了，最新值:");
+					console.log(this.a);
+				}
+			}
+		})
+	</script>
+	
+</body>
+</html>
