@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+<!-- 	<div id="app" v-html="name">
+		
+	</div> -->
+<!-- 	<div id="app">
+		<a v-bind:href="link">hello官网</a>
+	</div> -->
+<!-- 	<div id="app">
+		<button :disabled="dis_true">我是true</button>
+		<button :disabled="dis_false">我是false</button>
+	</div> -->
+	<!-- <div id="app">{{num+3}}</div> -->
+	<!-- <div id="app">{{ok?'yes':'no'}}</div> -->
+	<div id="app"><a :href="'http://'+host">hello官网</a></div>
+	<script type="text/javascript">
+		// let app=new Vue({
+		// 	el:"#app",
+		// 	data:{
+		// 		name:"<strong>前端君</strong>"
+		// 	}
+		// });
+		// let app=new Vue({
+		// 	el:"#app",
+		// 	data:{
+		// 		link:"http://hello.com"
+		// 	}
+		// })
+		// let app=new Vue({
+		// 	el:"#app",
+		// 	data:{
+		// 		dis_true:true,
+		// 		dis_false:false
+		// 	}
+		// })
+		// let app=new Vue({
+		// 	el:"#app",
+		// 	data:{
+		// 		num:3
+		// 	}
+		// })
+		// let app=new Vue({
+		// 	el:"#app",
+		// 	data:{
+		// 		ok:true
+		// 	}
+		// })
+		let app=new Vue({
+			el:"#app",
+			data:{
+				host:'hello.com'
+			}
+		})
+	</script>
+	
+</body>
+</html>
