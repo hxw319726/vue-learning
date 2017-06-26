@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+shuzi1:{{num1|tolnt}}<br>
+shuzi2:{{num2|tolnt}}<br> 
+shuzi3:{{num3|tolnt}}  
+</div>
+<script type="text/javascript">
+	let vm=new Vue({
+		el:"#app",
+		data:{
+			num1:33.414,
+			num2:25.254,
+			num3:45.356
+		},
+		filters:{
+			tolnt(value){
+				return parselnt(value);
+			}
+		}
+	});
+</script>	
+</body>
+</html>
