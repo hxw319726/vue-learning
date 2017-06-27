@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+	<!--<div id="app">
+		<p v-for="(item,index) in list">{{index}}.{{item}}</p>
+	</div>-->
+	<!--<div id="app">
+		<button v-on:click="say('tom')">点击</button>	
+	</div>-->
+	<!--<div id="app">
+		<input type="text" name="" value="" v-model="msg">
+		<p>你输入：{{msg}}</p>
+	</div>-->
+	<div id="app">
+		<input v-model="msg" type="text">
+		<p v-once>你输入:{{msg}}</p>
+	</div>
+	<script type="text/javascript">
+		// let app=new Vue({
+		// 	el:"#app",
+		// 	data:{
+		// 		list:['tom','john','lisa']
+		// 	}
+		// });
+		// let app=new Vue({
+		// 	el:"#app",
+		// 	methods:{
+		// 		say(name){
+		// 			alert('hello'+name);
+		// 		}
+		// 	}
+		// });
+		let app=new Vue({
+			el:"#app",
+			data:{
+				msg:"123"
+			}
+		})
+	</script>
+	
+</body>
+</html>

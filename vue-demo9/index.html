@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<my-article v-for="item in articles" :detail="item"></my-article>
+	</div>
+	<script type="text/javascript">
+		Vue.component('my-article',{
+			props:['detail'],
+			template:`<div class="unit">
+		<div class="content" style="float:left;">
+			<h1>{{detail.title}}</h1>
+			<div class="info">
+				<span>{{detail.date}}</span>
+				<span v-show="detail.is_original" class="original">原创</span>
+			</div>
+		</div>
+		<img :src="detail.cover_url" alt="" style="max-height:84.44px;float:right;">
+		<div style="clear:both;"></div>
+	</div>`
+		});
+
+
+		let app=new Vue({
+			el:"#app",
+			data:{
+				articles:[{
+					title:"这里是文章的标题1",
+					date:"2017年4月10日",
+					is_original:true,
+					cover_url:"http://cn.vuejs.org/images/logo.png"
+				},
+				{
+					title:"这里是文章的标题2",
+					date:"2017年4月10日",
+					is_original:true,
+					cover_url:"http://cn.vuejs.org/images/logo.png"
+				},
+				{
+					title:"这里是文章的标题3",
+					date:"2017年4月10日",
+					is_original:true,
+					cover_url:"http://cn.vuejs.org/images/logo.png"
+				},
+				{
+					title:"这里是文章的标题4",
+					date:"2017年4月10日",
+					is_original:true,
+					cover_url:"http://cn.vuejs.org/images/logo.png"
+				}]
+			}
+		})
+	</script>
+</body>
+</html>

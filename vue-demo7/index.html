@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+	<!--<div id="app"> 
+		<p v-text="msg"></p>
+	</div>-->
+	<!--<div id="app">
+		<p v-show="show1">我是true</p>
+		<p v-show="show2">我是false</p>
+	</div>-->
+	<!--<div id="app">
+		<p v-if="if1">我是true</p>
+		<p v-if="if2">我是false</p>
+	</div>-->
+	<div id="app">
+		<p v-if="if1">我是true</p>
+		<p v-else>我是false</p>
+	</div>
+	<script type="text/javascript">
+		// let app=new Vue({
+		// 	el:"#app",
+		// 	data:{
+		// 		msg:"hell,vue"
+		// 	}
+		// });
+		// let app=new Vue({
+		// 	el:"#app",
+		// 	data:{
+		// 		show1:true,
+		// 		show2:false
+		// 	}
+		// });
+		// let app=new Vue({
+		// 	el:"#app",
+		// 	data:{
+		// 		if1:true,
+		// 		if2:true
+		// 	}
+		// });
+		let app=new Vue({
+			el:"#app",
+			data:{
+				if1:false,
+				// if2:true
+			}
+		});
+	</script>
+	
+</body>
+</html>
