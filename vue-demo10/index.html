@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+	<!--<div id="app">
+		<son :message="msg"></son>
+	</div>-->
+	<div id="app">
+		<son @connect="say"></son>
+	</div>
+	<script type="text/javascript">
+		// Vue.component('son',{
+		// 	props:['message'],
+		// 	template:`<div>{{message}}</div>`
+		// });
+		Vue.component('son',{
+			template:`<button @click="send">点击</button>`,
+			data(){
+				return{
+					msg:"大家好，我是子组件的数据"
+				}	
+			},
+			methods:{
+				send(){
+					this.$emit('connect',this.msg);
+				}
+			}
+		})
+		let app=new Vue({
+			el:"#app",
+			data:{
+				msg:"我是父组件的数据"
+			},
+			methods:{
+				say(msg){
+					alert(msg);
+				}
+			}
+		});
+
+
+		
+	</script>
+</body>
+</html>
