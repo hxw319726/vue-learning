@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<style>
+#app{
+	width: 500px;
+	height: 500px;
+	background: #eeeeee;
+}
+.btn{
+	width: 100px;
+	height: 40px;
+	color: #fff;
+	background: #20B060;
+	outline: #20B060;
+	border: #20B060;
+	border-radius: 5px;
+}
+.container{
+	width: 80%;
+	height: 80%;
+	border: 1 none #cccccc;
+	background: #cccccc;
+	margin-top: 10px;
+}
+.box{
+	width: 100%;
+	height: 100%;
+	background: #ff8282;
+	text-align: center;
+	line-height: 200px;
+	color: #fff;
+
+
+}
+.box-enter-active,.box-leave-active{
+	transition: all .8s;
+}
+.box-enter{
+	opacity: 0;
+	margin-left: 100%;
+}
+.box-leave-active{
+	opacity: 0;
+	margin-left: 100%;
+}
+</style>
+<body>
+	<div id="app">
+		<button class="btn"
+		@click="showBox=!showBox"
+		>切换</button>
+		<div class="container">
+			<transition name="box">
+				<div v-show="showBox" class="box">
+					i am the box
+				</div>
+			</transition>
+		</div>
+	</div>
+	<script type="text/javascript">
+		const app=new Vue({
+			el:"#app",
+			data:{
+				showBox:false
+			}
+		})
+	</script>
+	
+</body>
+</html>

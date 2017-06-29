@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<style>
+#app{
+	text-align: center;
+	margin-top: 100px;
+}
+input{
+	width:100px;
+	height: 50px;
+}
+button{
+	margin-top: 50px;
+	background: blue;
+	width: 500px;
+	height: 50px;
+	border-radius: 20px;
+	color: #fff;
+	font-size: 20px;
+}
+</style>
+<body>
+	<div id="app">
+		<input type="text"
+			v-model="augend"
+			@keyup="calculate"
+		>
+		<span>+</span>
+		<input type="text"
+			v-model="addend"
+			@keyup="calculate"
+		>
+		<span>=</span>
+		<input type="text"
+			:value="sum"
+		><br>
+		<button @click="reset">清空数据</button>
+	</div>
+	<script type="text/javascript">
+		const app=new Vue({
+			el:"#app",
+			data:{
+				augend:'',
+				addend:'',
+				sum:''
+			},
+			methods:{
+				calculate(){
+					if(this.augend==''&&this.addend==''){
+						this.sum='';
+					}else{
+						this.sum=Number(this.augend)+Number(this.addend);
+					}
+					
+				},
+				reset(){
+					this.sum='';
+					this.augend='';
+					this.addend='';
+					this.$emit('reset');
+				}
+			}
+
+		})
+	</script>
+	
+</body>
+</html>
