@@ -73,15 +73,17 @@ th.active .arrow {
 		<form id="search">
 			search <input name="query" v-model="searchQuery">
 		</form>
+
+		<demo-grid :columns="gridColumns" :data="gridData" :filter-key="searchQuery"></demo-grid>
 	</div>
-	<script type="text/x-template" id="grid-template">
+	<template id="grid-template">
 		<table>
 			<thead>
 				<tr>
 					<th v-for="key in columns"
 						@click="sortBy(key)"
-						:class="{active=sortKey==key}"
-					>{{key | capitalize}}
+						:class="{active:sortKey==key}">
+						{{ key|capitalize}}
 					<span class="arrow" :class="sortOrders[key]>0?'asc':'dsc'"></span>
 					</th>
 				</tr>
@@ -95,15 +97,11 @@ th.active .arrow {
 				</tr>
 			</tbody>
 		</table>
-	</script>
+	</template>
 	<script type="text/javascript">
 		Vue.component('demo-grid',{
 			template:'#grid-template',
-			props:{
-				data:Array,
-				columns:Array,
-				filterKey:String
-			},
+			props:['data','columns','filterKey'],
 			data(){
 				var sortOrders={}
 				this.columns.forEach(function(key) {
@@ -123,12 +121,12 @@ th.active .arrow {
 					if(filterKey){
 						data=data.filter(function(row){
 							return Object.keys(row).some(function(key){
-								return String(row[key].toLowerCase().indexOf(filterKey))>-1
+								return String(row[key]).toLowerCase().indexOf(filterKey)>-1
 							})
 						})
 					}
 					if(sortKey){
-						data=data.slic().sort(function(a,b){
+						data=data.slice().sort(function(a,b){
 							a=a[sortKey]
 							b=b[sortKey]
 							return (a===b?0:a>b?1:-1)*order
@@ -137,9 +135,9 @@ th.active .arrow {
 					return data
 				}
 			},
-			filter:{
+			filters:{
 				capitalize(str){
-					return str.charAt(0).toUpperCase()+str.slic(1)
+					return str.charAt(0).toUpperCase()+str.slice(1)
 				}
 			},
 			methods:{
@@ -155,10 +153,10 @@ th.active .arrow {
 				searchQuery: '',
 				gridColumns: ['name', 'power'],
 				gridData: [
-				{ name: 'Chuck Norris', power: Infinity },
-				{ name: 'Bruce Lee', power: 9000 },
-				{ name: 'Jackie Chan', power: 7000 },
-				{ name: 'Jet Li', power: 8000 }
+					{ name: 'Chuck Norris', power: Infinity },
+					{ name: 'Bruce Lee', power: 9000 },
+					{ name: 'Jackie Chan', power: 7000 },
+					{ name: 'Jet Li', power: 8000 }
 				]
 			}
 		})
